@@ -1,7 +1,7 @@
 server:
   port: 8081
   ssl:
-    enabled: true
+    enabled: false
     key-store: "../certificates/certificates/server.p12"
     key-store-password: "password_server_1"
   forward-headers-strategy: framework
@@ -36,9 +36,11 @@ spring:
 #            allowedHeaders: "*"
       routes:
         - id: Admin-swagger
-          uri: https://127.0.0.1:8082
+          uri: http://127.0.0.1:8082
           predicates:
             - Path=/admin/**, /admin_/**, /swagger-ui/**, /v3/api-docs/**
+          filters:
+            - MyHttpClient=myclient
         - id: Inventory-swagger
           uri: forward://127.0.0.1:8083
           predicates:
@@ -56,6 +58,20 @@ spring:
         enabled: true
       x-forwarded:
         enabled: true
+
+gateway:
+  httpclient:
+    conn1:
+      ssl:
+        key-store: "../certificates/certificates/internal.p12"
+        key-store-password: "password_internal"
+        use-insecure-trust-manager: true
+    conn2:
+      ssl:
+        key-store: "../certificates/certificates/internal.p12"
+        key-store-password: "password_internal"
+        use-insecure-trust-manager: true
+
 
 logging:
   level:

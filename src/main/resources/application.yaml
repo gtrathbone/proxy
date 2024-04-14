@@ -60,17 +60,17 @@ spring:
         enabled: true
 
 gateway:
-  httpclient:
+  httpclients:
     conn1:
-      ssl:
-        key-store: "../certificates/certificates/internal.p12"
-        key-store-password: "password_internal"
-        use-insecure-trust-manager: true
+        ssl:
+          key-store: "../certificates/certificates/internal.p12"
+          key-store-password: "password_internal"
+          use-insecure-trust-manager: true
     conn2:
-      ssl:
-        key-store: "../certificates/certificates/internal.p12"
-        key-store-password: "password_internal"
-        use-insecure-trust-manager: true
+        ssl:
+          key-store: "../certificates/certificates/internal.p12"
+          key-store-password: "password_internal"
+          use-insecure-trust-manager: true
 
 
 logging:

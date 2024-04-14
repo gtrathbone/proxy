@@ -8,15 +8,24 @@ import java.util.List;
 import java.util.Map;
 
 @Component
-@ConfigurationProperties("gateway.httpclient")
+@ConfigurationProperties(prefix="gateway")
 public class HttpClientConfig {
-  Map<String, HttpClientProperties> configurations;
+  private Map<String, String> test;
+  private Map<String, HttpClientProperties> httpclients;
 
-  public Map<String, HttpClientProperties> getConfigurations() {
-    return configurations;
+  public Map<String, String> getTest() {
+    return test;
   }
 
-  public void setConfigurations(Map<String, HttpClientProperties> configurations) {
-    this.configurations = configurations;
+  public void setTest(Map<String, String> test) {
+    this.test = test;
+  }
+
+  public Map<String, HttpClientProperties> getHttpclients() {
+    return httpclients;
+  }
+
+  public void setHttpclients(Map<String, HttpClientProperties> httpclients) {
+    this.httpclients = httpclients;
   }
 }

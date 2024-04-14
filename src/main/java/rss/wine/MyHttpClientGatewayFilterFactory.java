@@ -16,7 +16,7 @@ import java.util.List;
 @Component
 public class MyHttpClientGatewayFilterFactory extends AbstractGatewayFilterFactory<MyHttpClientGatewayFilterFactory.Config> {
 
-  public MyHttpClientGatewayFilterFactory() {
+  public MyHttpClientGatewayFilterFactory(HttpClientConfig config) {
     super(Config.class);
   }
 
